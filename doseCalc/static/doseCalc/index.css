@@ -1,0 +1,48 @@
+div#CT_uploader{
+	display: none;
+}
+
+div#material_radio{
+	display: none;
+}
+
+form, input {
+    margin: 10px;
+}
+#docs {
+    display: block;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+}
+
+input:focus,textarea:focus{
+  border-color: initial;
+ }
+
+input.error, textarea.error{
+  border:1px solid red;
+}
+
+div#simulating{
+	display:none;
+}
+
+.dotting {
+    display: inline-block; width: 10px; min-height: 2px;
+    padding-right: 2px;
+    border-left: 2px solid currentColor; border-right: 2px solid currentColor;   
+    background-color: currentColor; background-clip: content-box;
+    box-sizing: border-box;
+    animation: dot 4s infinite step-start both;
+    *zoom: expression(this.innerHTML = '...'); /* IE7 */
+}
+.dotting:before { content: '...'; } /* IE8 */
+.dotting::before { content: ''; }
+:root .dotting { margin-left: 2px; padding-left: 2px; } /* IE9+ */
+
+@keyframes dot {
+    25% { border-color: transparent; background-color: transparent; }          /* 0个点 */
+    50% { border-right-color: transparent; background-color: transparent; }    /* 1个点 */
+    75% { border-right-color: transparent; }                                   /* 2个点 */
+}

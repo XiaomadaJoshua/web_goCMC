@@ -1,0 +1,23 @@
+// directory for macro cross section:
+input/carbon.crossSection
+// directory for mass stopping power ratio:
+input/carbon.mspr
+// directory for restricted stopping power in water:
+input/carbon.rspw
+// directory for nuclear data
+input/nuclear
+// beam parameters: width, energy, number of carbons, source center
+1.000000	1.000000
+12.000000
+1000000
+0.000000	0.000000	-50.000000
+// phantom parameters: vox size, iso center, width, hight, depth
+1.000000	1.000000	1.000000
+0.000000	0.000000	0.000000
+1	1	1
+// CTFile or standard material:
+PMMA
+// scoring quantity:
+DOSE2MEDIUM
+// output directory
+Output/

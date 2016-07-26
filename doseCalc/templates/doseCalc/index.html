@@ -1,0 +1,68 @@
+{% load staticfiles %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'doseCalc/index.css' %}" />
+<script src="https://code.jquery.com/jquery-3.1.0.js" integrity="sha256-slogkvB1K3VOkzAI8QITxV3VzpOnkeNVsKvtkYLMjfk=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.15.1/jquery.validate.js"></script>
+<script src="{% static 'doseCalc/index.js' %}"></script>
+
+<h1>Dose calculation </h1>
+
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+
+<form id="setup_form" action="{% url 'doseCalc:submit' %}" method="post" enctype="multipart/form-data">
+{% csrf_token %}
+<fieldset>
+<legend>Source particle information:</legend>
+Beam size (cm):<br>
+<input type="text" name="beamsize_x" class="beamsize">
+<input type="text" name="beamsize_y" class="beamsize"><br>
+Beam energy (MeV/u):<br>
+<input type="text" name="energy" id="energy"><br>
+Number of histories:<br> 
+<input type="text" name="nhistories"><br>
+</fieldset>
+
+<fieldset>
+<legend>Phantom information:</legend>
+Material:<br>
+Please choose:
+<input type="radio" id="CT_upload" name="phantom_material" value="upload">Upload a CT file
+<input type="radio" id="standard_material" name="phantom_material" value="choose">Use standard material
+<br>
+<div id="CT_uploader">
+<input type="file" name="CT"><br>
+</div>
+<div id="material_radio">
+<input type="radio" name="material" value="WATER">
+Water<br>
+<input type="radio" name="material" value="PMMA">
+PMMA
+</div>
+<br>
+Voxel size (cm):<br>
+<input type="text" name="voxsize_x" class="voxsize">
+<input type="text" name="voxsize_y" class="voxsize">
+<input type="text" name="voxsize_z" class="voxsize"><br>
+Resolution:<br>
+<input type="text" name="resolution_x" class="resolution">
+<input type="text" name="resolution_y" class="resolution">
+<input type="text" name="resolution_z" class="resolution">
+
+</fieldset>
+
+
+Scoring quantity:<br>
+<input type="radio" name="scoring_quantity" value="DOSE2MEDIUM">
+Dose to medium<br>
+<input type="radio" name="scoring_quantity" value="DOSE2WATER">
+Dose to water<br>
+<input type="radio" name="scoring_quantity" value="FLUENCE">
+Fluence<br>
+
+<input type="submit" value="Submit" id="submit">
+</form>
+
+<div id="simulating">
+Simulating<span class="dotting"></span>
+</div>
+
