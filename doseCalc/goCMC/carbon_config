@@ -7,17 +7,17 @@ input/carbon.rspw
 // directory for nuclear data
 input/nuclear
 // beam parameters: width, energy, number of carbons, source center
-1.000000	1.000000
-12.000000
-1000000
+0.000000	0.000000
+2400.000000
+100000
 0.000000	0.000000	-50.000000
 // phantom parameters: vox size, iso center, width, hight, depth
-1.000000	1.000000	1.000000
+0.100000	0.100000	0.100000
 0.000000	0.000000	0.000000
-1	1	1
+256	256	128
 // CTFile or standard material:
 PMMA
 // scoring quantity:
-DOSE2MEDIUM
+DOSE2WATER
 // output directory
 Output/

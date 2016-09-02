@@ -26,6 +26,11 @@ input.error, textarea.error{
 
 div#simulating{
 	display:none;
+	position: absolute;
+    z-index:9999;
+    display: none;
+    width:100%;
+    background-color: rgba(0,0,0,0.15);
 }
 
 .dotting {

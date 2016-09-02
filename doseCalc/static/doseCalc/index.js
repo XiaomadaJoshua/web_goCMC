@@ -42,7 +42,6 @@ $( document ).ready(function() {
 			min: 1
 		});
 	});
-
 	$('#submit').click(function(){
 		$('#simulating').show();
 	});
